@@ -30,7 +30,12 @@
   <xs:element name="prop"/>
   <xs:element name="status" type="xs:string"/>
   <xs:complexType name="hrefType">
-    <xs:sequence>
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element ref="D:href"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hrefCollectionType">
+    <xs:sequence minOccurs="1">
       <xs:element ref="D:href"/>
     </xs:sequence>
   </xs:complexType>
