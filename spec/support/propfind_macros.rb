@@ -1,5 +1,11 @@
-module PropgetMacros
-  XML_PATH = Pathname.new(Dir.pwd).join('xml')
+module PropfindMacros
+
+  def do_propfind(principal, xml, *options)
+    @principal = CONFIG[:principals][principal]
+    @response = @dav.propfind(@principal[:href], xml.to_xml, *options)
+    get_namespaces
+    @response_xpath = "/#{@dav_ns}multistatus/#{@dav_ns}response"
+  end
 
   def check_propget_one(type)
     @response.should be_kind_of(Nokogiri::XML::Document)
@@ -13,10 +19,5 @@ module PropgetMacros
     xsd = Nokogiri::XML::Schema(xsl.apply_to(xsd))
     xsd.validate(@response).should successfully_validate
   end
-  
-  def ns(uri='DAV:')
-    r = @response.root.namespace_definitions.select{|ns| ns.href == uri}.first.prefix.to_s
-    r += ':' unless r.empty?
-    r
-  end
+
 end
