@@ -1,4 +1,4 @@
-module PropfindMacros
+module PropfindInstanceMacros
 
   def do_propfind(principal, xml, *options)
     @principal = CONFIG[:principals][principal]

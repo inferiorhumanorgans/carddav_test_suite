@@ -16,17 +16,7 @@ require 'spec_helper'
 #  </D:multistatus>
 describe "PROPFIND addressbook-home-set" do
   require_default_auth
-
-  before(:all) do
-    @xml = Nokogiri::XML::Builder.new do |xml|
-      xml.propfind('xmlns:D' => 'DAV:', 'xmlns:C' => 'urn:ietf:params:xml:ns:carddav') do
-        xml.parent.namespace = xml.parent.namespace_definitions.find{|ns|ns.prefix=="D"}
-        xml['D'].prop do
-          xml['C'].send 'addressbook-home-set'
-        end
-      end
-    end
-  end
+  setup_single_property 'addressbook-home-set'
 
   it "should return a well-formatted response" do
     do_propfind(:first, @xml, :depth => 0)

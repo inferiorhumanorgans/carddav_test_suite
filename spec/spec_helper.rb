@@ -16,7 +16,9 @@ XML_PATH = Pathname.new(Dir.pwd).join('xml')
 Dir[Dir.pwd+"/spec/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  config.include PropfindMacros
+  config.extend PropfindClassMacros
+  config.include PropfindInstanceMacros
+
   config.extend DAVClassMacros
   config.include DAVInstanceMacros
 
