@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:carddav" elementFormDefault="qualified" targetNamespace="DAV:" >
+  <xs:import namespace="urn:ietf:params:xml:ns:carddav" schemaLocation="xml/CardDAV.xsd"/>
+  <xs:element name="multistatus">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element ref="D:response"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="response">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="D:hrefType">
+          <xs:sequence>
+            <xs:element ref="D:propstat"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="propstat">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element ref="D:prop"/>
+        <xs:element ref="D:status"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prop"/>
+  <xs:element name="status" type="xs:string"/>
+  <xs:complexType name="hrefType">
+    <xs:sequence>
+      <xs:element ref="D:href"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="href" type="xs:string"/>
+</xs:schema>

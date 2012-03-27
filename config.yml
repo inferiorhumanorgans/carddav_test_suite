@@ -1,0 +1,7 @@
+:base_url: http://localhost:55555/
+:default_user: alex
+:default_password: password
+:principals:
+  :first:
+    :href: /carddav/
+    :address_book_set: set
