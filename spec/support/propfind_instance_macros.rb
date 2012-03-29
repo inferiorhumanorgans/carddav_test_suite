@@ -1,8 +1,17 @@
 module PropfindInstanceMacros
 
-  def do_propfind(principal, xml, *options)
-    @principal = CONFIG[:principals][principal]
-    @response = @dav.propfind(@principal[:href], xml.to_xml, *options)
+  def do_propfind(xml, options)
+    if options.include? :principals
+      @principal = @obj = CONFIG[:principals][options[:principals]]
+    elsif options.include? :addressbooks
+      @addressbook = @obj = CONFIG[:addressbooks][options[:addressbooks]]
+    end
+
+    dav_opts = options
+    dav_opts.delete :principals
+    dav_opts.delete :addressbooks
+
+    @response = @dav.propfind(@obj[:href], xml.to_xml, dav_opts)
     get_namespaces
     @response_xpath = "/#{@dav_ns}multistatus/#{@dav_ns}response"
   end

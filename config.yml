@@ -4,4 +4,6 @@
 :principals:
   :first:
     :href: /carddav/
-    :address_book_set: set
+:addressbooks:
+  :mine:
+    :href: /book/1

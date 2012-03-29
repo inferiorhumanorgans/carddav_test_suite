@@ -2,6 +2,28 @@
 <xs:schema
 xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:ietf:params:xml:ns:carddav" xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:carddav">
   <xs:import namespace="DAV:" schemaLocation="xml/dav.xsd"/>
+
   <xs:element name="addressbook-home-set" type="D:hrefCollectionType"/>
+
   <xs:element name="principal-address" type="D:hrefType"/>
+
+  <xs:element name="addressbook-description" type="xs:string" />
+
+  <xs:element name="address-data-type">
+    <xs:complexType>
+      <xs:attribute name="content-type" type="xs:string"/>
+      <xs:attribute name="version" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+    
+  <xs:element name="supported-address-data">
+    <xs:complexType>
+      <xs:sequence minOccurs="1">
+        <xs:element ref="C:address-data-type" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="max-resource-size" type="xs:integer" />
+
 </xs:schema>
