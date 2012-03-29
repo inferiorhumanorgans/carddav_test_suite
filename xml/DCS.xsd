@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://calendarserver.org/ns/" xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:carddav" xmlns:APPLE1='http://calendarserver.org/ns/'>
+  <xs:import namespace="DAV:" schemaLocation="xml/dav.xsd"/>
+  <xs:import namespace="urn:ietf:params:xml:ns:carddav" schemaLocation="xml/CardDAV.xsd"/>
+
+  <xs:element name="getctag" type="xs:string"/>
+
+</xs:schema>

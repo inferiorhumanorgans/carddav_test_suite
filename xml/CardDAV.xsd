@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:ietf:params:xml:ns:carddav" xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:carddav">
+
   <xs:import namespace="DAV:" schemaLocation="xml/dav.xsd"/>
+  <xs:import namespace="http://calendarserver.org/ns/" schemaLocation="xml/DCS.xsd"/>
 
   <xs:element name="addressbook-home-set" type="D:hrefCollectionType"/>
 
@@ -12,7 +14,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targe
   <xs:element name="address-data-type">
     <xs:complexType>
       <xs:attribute name="content-type" type="xs:string"/>
-      <xs:attribute name="version" type="xs:string"/>
+      <xs:attribute name="version" type="xs:decimal"/>
     </xs:complexType>
   </xs:element>
     
