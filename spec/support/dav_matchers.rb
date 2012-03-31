@@ -7,7 +7,9 @@ module Matchers
 
       def matches?(actual)
         @actual = actual
-        [@actual, @actual+'/'].include? @expected
+        @alternate = @actual + '/' if @actual[-1] != '/'
+        @alternate = @actual[0..-2] if @actual[-1] == '/'
+        [@actual, @alternate].include? @expected
       end
 
       def failure_message
