@@ -30,7 +30,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
+  <xs:element name="collection">
+    <xs:complexType/>
+  </xs:element>
+
+  <xs:element name="resourcetype"/>
   <xs:element name="prop"/>
+
   <xs:element name="status" type="xs:string"/>
   <xs:element name="href" type="xs:string"/>
   <xs:element name="getetag" type="xs:string"/>
