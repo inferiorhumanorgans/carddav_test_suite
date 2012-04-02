@@ -16,13 +16,15 @@ module PropfindInstanceMacros
     @response_xpath = "/#{@dav_ns}multistatus/#{@dav_ns}response"
   end
 
-  def check_propget_one(type)
+  def check_propget_one(type, options={})
+    opts = {:xsl_prefix => ''}.merge(options)
+
     @response.should be_kind_of(Nokogiri::XML::Document)
 
     xsd_path = File.join(XML_PATH.join('propget_one.xsd'))
     xsd = Nokogiri::XML(IO.read(xsd_path))
 
-    xsl_path = File.join(XML_PATH.join("propget_one_#{type}.xsl"))
+    xsl_path = File.join(XML_PATH.join("propget_one_#{opts[:xsl_prefix]}#{type}.xsl"))
     xsl = Nokogiri::XSLT(IO.read(xsl_path))
 
     xsd = Nokogiri::XML::Schema(xsl.apply_to(xsd))

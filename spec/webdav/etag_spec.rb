@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "PROPFIND getetag" do
   require_default_auth
-  setup_single_property('getetag', 'D')
+  setup_single_property('getetag', :ns_prefix => 'D')
   do_propfind(:addressbooks => :mine, :depth => 0)
 
   it "should return a well-formatted response" do
