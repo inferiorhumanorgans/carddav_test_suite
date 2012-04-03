@@ -14,7 +14,7 @@ describe "PROPFIND resourcetype" do
   do_propfind(:addressbooks => :mine, :depth => 0)
 
   it "should return a well-formatted response" do
-    check_propget_one(@prop, :xsl_prefix => 'addressbook_')
+    check_propget_one(@prop, :xsd_prefix => 'addressbook_')
   end
 
   it "should return the correct href" do

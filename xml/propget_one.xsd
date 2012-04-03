@@ -1,56 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:D="DAV:" xmlns:C="urn:ietf:params:xml:ns:carddav" xmlns:APPLE1='http://calendarserver.org/ns/' elementFormDefault="qualified" targetNamespace="DAV:" >
 
-  <xs:import namespace="urn:ietf:params:xml:ns:carddav" schemaLocation="xml/CardDAV.xsd"/>
-  <xs:import namespace="http://calendarserver.org/ns/" schemaLocation="xml/DCS.xsd"/>
+  <!-- Include the base WebDAV stuff -->
+  <xs:include schemaLocation="WebDAV.xsd" />
+
+  <xs:import namespace="urn:ietf:params:xml:ns:carddav" schemaLocation="CardDAV.xsd"/>
+  <xs:import namespace="http://calendarserver.org/ns/" schemaLocation="DCS.xsd"/>
 
   <xs:element name="multistatus">
     <xs:complexType>
       <xs:sequence minOccurs="1" maxOccurs="1">
-        <xs:element ref="D:response"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="response">
-    <xs:complexType>
-      <xs:complexContent>
-        <xs:extension base="D:hrefType">
-          <xs:sequence>
-            <xs:element ref="D:propstat"/>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="propstat">
-    <xs:complexType>
-      <xs:sequence minOccurs="1" maxOccurs="1">
-        <xs:element ref="D:prop"/>
-        <xs:element ref="D:status"/>
+        <xs:element name="response" type="D:propgetResponseType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="collection">
-    <xs:complexType/>
-  </xs:element>
-
-  <xs:element name="resourcetype"/>
-  <xs:element name="prop"/>
-
-  <xs:element name="status" type="xs:string"/>
-  <xs:element name="href" type="xs:string"/>
-  <xs:element name="getetag" type="xs:string"/>
-  
-  <xs:complexType name="hrefType">
-    <xs:sequence minOccurs="1" maxOccurs="1">
-      <xs:element ref="D:href"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="hrefCollectionType">
-    <xs:sequence minOccurs="1">
-      <xs:element ref="D:href"/>
-    </xs:sequence>
+  <xs:complexType name="propgetResponseType">
+    <xs:complexContent>
+      <xs:extension base="D:hrefType">
+        <xs:sequence>
+          <xs:element ref="D:propstat"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
 </xs:schema>
