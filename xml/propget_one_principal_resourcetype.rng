@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <include href="xml/propget_one.rng">
+    <define name="prop">
+      <element name="prop" ns="DAV:">
+        <element name="resourcetype" ns="DAV:">
+
+          <!-- Don't care about any other potential children -->
+          <optional>
+            <element>
+              <anyName>
+                <except>
+                  <name ns="DAV:">principal</name>
+                </except>
+              </anyName>
+              <empty/>
+            </element>
+          </optional>
+
+          <!-- But it does need to define a DAV:principal element -->
+          <ref name="principal" />
+
+        </element>
+      </element>
+    </define>
+  </include>
+  <start>
+    <ref name="propget" />
+  </start>
+</grammar>
