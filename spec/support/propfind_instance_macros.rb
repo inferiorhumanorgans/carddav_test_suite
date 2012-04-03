@@ -23,8 +23,16 @@ module PropfindInstanceMacros
     @response.should be_kind_of(Nokogiri::XML::Document)
 
     xsd_path = File.join(XML_PATH.join("propget_one_#{opts[:xsd_prefix]}#{type}.xsd"))
-    xsd = Nokogiri::XML::Schema(IO.read(xsd_path))
-    xsd.validate(@response).should successfully_validate
+    rng_path = File.join(XML_PATH.join("propget_one_#{opts[:xsd_prefix]}#{type}.rng"))
+    if File.exist? rng_path
+      rng = Nokogiri::XML::RelaxNG(IO.read(rng_path))
+      rng.validate(@response).should successfully_validate
+    elsif File.exist? xsd_path
+      xsd = Nokogiri::XML::Schema(IO.read(xsd_path))
+      xsd.validate(@response).should successfully_validate
+    else
+      raise "There should be a schema of some sort"
+    end
   end
 
 end
