@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <include href="xml/propget_one.rng">
+    <define name="prop">
+      <element name="prop" ns="DAV:">
+        <element name="resourcetype" ns="DAV:">
+
+          <!-- Don't care about any other potential children -->
+          <optional>
+            <element>
+              <anyName>
+                <except>
+                  <name ns="urn:ietf:params:xml:ns:carddav">addressbook</name>
+                  <name ns="DAV:">collection</name>
+                </except>
+              </anyName>
+              <empty/>
+            </element>
+          </optional>
+
+          <interleave>
+            <!-- But we need a CARDDAV:addressbook element -->
+            <ref name="addressbook" />
+
+            <!-- And a DAV:collection element -->
+            <ref name="collection" />
+          </interleave>
+
+        </element>
+      </element>
+    </define>
+  </include>
+  <start>
+    <ref name="propget" />
+  </start>
+</grammar>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <include href="xml/propget_one.rng">
+    <define name="prop">
+      <element name="prop" ns="DAV:">
+        <ref name="max-resource-size" />
+      </element>
+    </define>
+  </include>
+  <start>
+    <ref name="propget" />
+  </start>
+</grammar>
