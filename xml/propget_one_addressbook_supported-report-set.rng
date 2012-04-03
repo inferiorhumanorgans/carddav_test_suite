@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="supported-report-set">
+    <element name="supported-report-set" ns="DAV:">
+      <oneOrMore>
+        <element name="report" ns="DAV:">
+          <choice>
+            <element>
+              <anyName />
+              <empty/>
+            </element>
+          </choice>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+
+  <include href="xml/propget_one.rng">
+
+    <define name="prop">
+      <element name="prop" ns="DAV:">
+        <ref name="supported-report-set" />
+      </element>
+    </define>
+  </include>
+  <start>
+    <ref name="propget" />
+  </start>
+</grammar>
