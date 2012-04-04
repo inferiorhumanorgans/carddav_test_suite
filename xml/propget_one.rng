@@ -65,6 +65,14 @@
     </element>
   </define>
 
+  <define name="alternate-URI-set">
+    <element name="alternate-URI-set" ns="DAV:">
+      <zeroOrMore>
+        <ref name="href" />
+      </zeroOrMore>
+    </element>
+  </define>
+
   <define name="collection">
     <element name="collection" ns="DAV:">
       <empty/>
@@ -74,6 +82,22 @@
   <define name="displayname">
     <element name="displayname" ns="DAV:">
       <text/>
+    </element>
+  </define>
+
+  <define name="group-membership">
+    <element name="group-membership" ns="DAV:">
+      <zeroOrMore>
+        <ref name="href" />
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="group-membership-set">
+    <element name="group-membership-set" ns="DAV:">
+      <zeroOrMore>
+        <ref name="href" />
+      </zeroOrMore>
     </element>
   </define>
 
@@ -107,6 +131,12 @@
     </element>
   </define>
   
+  <define name="principal-URL">
+    <element name="principal-URL" ns="DAV:">
+      <ref name="href"/>
+    </element>
+  </define>
+
   <define name="supported-address-data">
     <element name="supported-address-data" ns="urn:ietf:params:xml:ns:carddav">
       <oneOrMore>
