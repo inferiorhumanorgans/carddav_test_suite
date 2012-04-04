@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <include href="xml/propget_one.rng">
-    <define name="prop">
+    <define name="DAV.prop">
       <element name="prop" ns="DAV:">
         <element name="resourcetype" ns="DAV:">
 
@@ -18,13 +18,13 @@
           </optional>
 
           <!-- But it does need to define a DAV:principal element -->
-          <ref name="principal" />
+          <ref name="DAV.principal" />
 
         </element>
       </element>
     </define>
   </include>
   <start>
-    <ref name="propget" />
+    <ref name="DAV.propget" />
   </start>
 </grammar>
