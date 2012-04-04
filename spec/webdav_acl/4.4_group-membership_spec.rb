@@ -13,7 +13,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND group-membership (principal resource)" do
+describe "PROPFIND DAV:group-membership (principal resource)" do
   require_default_auth
   setup_single_property('group-membership', :ns_prefix => 'D')
   do_propfind(:principals => :first, :depth => 0)

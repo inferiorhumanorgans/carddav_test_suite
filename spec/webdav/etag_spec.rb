@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "PROPFIND getetag" do
+describe "PROPFIND DAV:getetag (addressbook)" do
   require_default_auth
   setup_single_property('getetag', :ns_prefix => 'D')
   do_propfind(:addressbooks => :mine, :depth => 0)

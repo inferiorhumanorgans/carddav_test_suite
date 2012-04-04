@@ -35,7 +35,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND addressbook-description" do
+describe "PROPFIND CARDDAV:addressbook-description (addressbook)" do
   require_default_auth
   setup_single_property('addressbook-description')
   do_propfind(:addressbooks => :mine, :depth => 0)

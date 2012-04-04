@@ -22,7 +22,7 @@
 =end
 require 'spec_helper'
 
-describe "PROPFIND DAV:supported-report-set" do
+describe "PROPFIND DAV:supported-report-set (addressbook)" do
   require_default_auth
   setup_single_property('supported-report-set', :ns_prefix => 'D')
   do_propfind(:addressbooks => :mine, :depth => 0)

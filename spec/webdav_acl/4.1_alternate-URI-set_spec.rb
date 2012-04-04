@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND alternate-URI-set (principal resource)" do
+describe "PROPFIND DAV:alternate-URI-set (principal resource)" do
   require_default_auth
   setup_single_property('alternate-URI-set', :ns_prefix => 'D')
   do_propfind(:principals => :first, :depth => 0)

@@ -38,7 +38,7 @@
 =end
 require 'spec_helper'
 
-describe "PROPFIND max-resource-size" do
+describe "PROPFIND CARDDAV:max-resource-size (addressbook)" do
   require_default_auth
   setup_single_property('max-resource-size')
   do_propfind(:addressbooks => :mine, :depth => 0)

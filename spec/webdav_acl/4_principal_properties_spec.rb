@@ -14,7 +14,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND displayname (principal resource)" do
+describe "PROPFIND DAV:displayname (principal resource)" do
   require_default_auth
   setup_single_property('displayname', :ns_prefix => 'D')
   do_propfind(:principals => :first, :depth => 0)
@@ -36,7 +36,7 @@ describe "PROPFIND displayname (principal resource)" do
   end
 end
 
-describe "PROPFIND resourcetype (principal resource)" do
+describe "PROPFIND DAV:resourcetype (principal resource)" do
   require_default_auth
   setup_single_property('resourcetype', :ns_prefix => 'D')
   do_propfind(:principals => :first, :depth => 0)

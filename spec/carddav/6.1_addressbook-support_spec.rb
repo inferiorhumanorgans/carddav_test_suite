@@ -11,7 +11,7 @@
 
 require 'spec_helper'
 
-describe "OPTIONS" do
+describe "OPTIONS (addressbook)" do
   require_default_auth
 
   it "should indicate addressbook support on the address book resource" do

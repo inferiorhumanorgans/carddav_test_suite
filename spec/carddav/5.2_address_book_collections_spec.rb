@@ -8,7 +8,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND resourcetype" do
+describe "PROPFIND DAV:resourcetype (addressbook)" do
   require_default_auth
   setup_single_property('resourcetype', :ns_prefix => 'D')
   do_propfind(:addressbooks => :mine, :depth => 0)

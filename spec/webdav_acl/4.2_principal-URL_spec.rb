@@ -12,7 +12,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND principal-URL (principal resource)" do
+describe "PROPFIND DAV:principal-URL (principal resource)" do
   require_default_auth
   setup_single_property('principal-URL', :ns_prefix => 'D')
   do_propfind(:principals => :first, :depth => 0)

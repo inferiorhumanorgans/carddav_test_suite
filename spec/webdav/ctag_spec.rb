@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "PROPFIND getctag" do
+describe "PROPFIND APPLE:getctag (addressbook)" do
   require_default_auth
   setup_single_property('getctag', :ns_prefix => 'APPLE1')
   do_propfind(:addressbooks => :mine, :depth => 0)

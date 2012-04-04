@@ -51,7 +51,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND principal-address" do
+describe "PROPFIND CARDDAV:principal-address (principal resource)" do
   require_default_auth
   setup_single_property('principal-address')
   do_propfind(:principals => :first, :depth => 0)

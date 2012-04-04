@@ -52,7 +52,7 @@
 
 require 'spec_helper'
 
-describe "PROPFIND addressbook-home-set" do
+describe "PROPFIND CARDDAV:addressbook-home-set (principal resource)" do
   require_default_auth
   setup_single_property 'addressbook-home-set'
   do_propfind(:principals => :first, :depth => 0)

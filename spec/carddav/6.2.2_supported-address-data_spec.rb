@@ -42,7 +42,7 @@
 =end
 require 'spec_helper'
 
-describe "PROPFIND supported-address-data" do
+describe "PROPFIND CARDDAV:supported-address-data (addressbook)" do
   require_default_auth
   setup_single_property('supported-address-data')
   do_propfind(:addressbooks => :mine, :depth => 0)
