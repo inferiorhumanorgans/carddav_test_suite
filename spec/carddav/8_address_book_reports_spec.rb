@@ -49,17 +49,17 @@ describe "PROPFIND DAV:supported-report-set (addressbook)" do
   
   it "should include the CARDDAV:addressbook-multiget report" do
     report_xpath = "count(#{@report_xpath}/#{@card_ns}addressbook-multiget)"
-    @response.xpath(report_xpath).should eq 1
+    @response.xpath(report_xpath).to_i.should eq 1
   end
 
   it "should include the CARDDAV:addressbook-query report" do
     report_xpath = "count(#{@report_xpath}/#{@card_ns}addressbook-query)"
-    @response.xpath(report_xpath).should eq 1
+    @response.xpath(report_xpath).to_i.should eq 1
   end
 
   # Section 8.1
   it "should include the DAV:expand-property report" do
     report_xpath = "count(#{@report_xpath}/#{@dav_ns}expand-property)"
-    @response.xpath(report_xpath).should eq 1
+    @response.xpath(report_xpath).to_i.should eq 1
   end
 end
