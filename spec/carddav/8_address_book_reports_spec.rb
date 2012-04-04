@@ -14,6 +14,12 @@
   resources) to be returned.
 =end
 
+=begin
+8.1. REPORT Method
+
+  A server that supports this specification MUST support the
+  DAV:expand-property report (defined in Section 3.8 of [RFC3253]).
+=end
 require 'spec_helper'
 
 describe "PROPFIND DAV:supported-report-set" do
@@ -41,13 +47,19 @@ describe "PROPFIND DAV:supported-report-set" do
     @response.xpath(status_xpath).text.should be_success
   end
   
-  it "should include the addressbook-multiget report" do
+  it "should include the CARDDAV:addressbook-multiget report" do
     report_xpath = "count(#{@report_xpath}/#{@card_ns}addressbook-multiget)"
     @response.xpath(report_xpath).should eq 1
   end
 
-  it "should include the addressbook-query report" do
+  it "should include the CARDDAV:addressbook-query report" do
     report_xpath = "count(#{@report_xpath}/#{@card_ns}addressbook-query)"
+    @response.xpath(report_xpath).should eq 1
+  end
+
+  # Section 8.1
+  it "should include the DAV:expand-property report" do
+    report_xpath = "count(#{@report_xpath}/#{@dav_ns}expand-property)"
     @response.xpath(report_xpath).should eq 1
   end
 end
