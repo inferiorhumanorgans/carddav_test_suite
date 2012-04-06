@@ -116,7 +116,21 @@
       <text/>
     </element>
   </define>
+
+  <define name="DAV-ACL.group">
+    <element name="group" ns="DAV:">
+      <zeroOrMore>
+        <ref name="DAV.href"/>
+      </zeroOrMore>
+    </element>
+  </define>
   
+  <define name="DAV-ACL.owner">
+    <element name="owner" ns="DAV:">
+      <ref name="DAV.href"/>
+    </element>
+  </define>
+
   <define name="DAV.principal">
     <element name="principal" ns="DAV:">
       <empty/>
