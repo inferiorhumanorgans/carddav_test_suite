@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
-  <define name="DAV.href">
-    <element name="href" ns="DAV:">
-      <text/>
-    </element>
-  </define>
-
-  <define name="DAV.prop">
-    <element name="prop" ns="DAV:">
-      <empty/>
-    </element>
-  </define>
-
   <define name="DAV.collection">
     <element name="collection" ns="DAV:">
       <empty/>
@@ -31,8 +19,20 @@
     </element>
   </define>
 
+  <define name="DAV.href">
+    <element name="href" ns="DAV:">
+      <text/>
+    </element>
+  </define>
+
   <define name="DAV.principal">
     <element name="principal" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
+  <define name="DAV.prop">
+    <element name="prop" ns="DAV:">
       <empty/>
     </element>
   </define>

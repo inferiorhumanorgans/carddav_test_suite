@@ -9,6 +9,14 @@
     </element>
   </define>
 
+  <define name="DAV-ACL.group">
+    <element name="group" ns="DAV:">
+      <zeroOrMore>
+        <ref name="DAV.href"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
   <define name="DAV-ACL.group-membership">
     <element name="group-membership" ns="DAV:">
       <zeroOrMore>
@@ -21,14 +29,6 @@
     <element name="group-membership-set" ns="DAV:">
       <zeroOrMore>
         <ref name="DAV.href" />
-      </zeroOrMore>
-    </element>
-  </define>
-
-  <define name="DAV-ACL.group">
-    <element name="group" ns="DAV:">
-      <zeroOrMore>
-        <ref name="DAV.href"/>
       </zeroOrMore>
     </element>
   </define>
