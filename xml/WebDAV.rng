@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
+  <define name="DAV.all">
+    <element name="all" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
+  <define name="DAV.authenticated">
+    <element name="authenticated" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
   <define name="DAV.collection">
     <element name="collection" ns="DAV:">
       <empty/>
@@ -33,6 +45,18 @@
 
   <define name="DAV.prop">
     <element name="prop" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
+  <define name="DAV.self">
+    <element name="self" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
+  <define name="DAV.unauthenticated">
+    <element name="unauthenticated" ns="DAV:">
       <empty/>
     </element>
   </define>

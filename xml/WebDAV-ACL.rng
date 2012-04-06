@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
+  <define name="DAV-ACL.acl-restrictions">
+    <element name="acl-restrictions" ns="DAV:">
+      <interleave>
+        <optional>
+          <ref name="DAV-ACL.grant-only" />
+        </optional>
+        <optional>
+          <ref name="DAV-ACL.no-invert" />
+        </optional>
+        <optional>
+          <ref name="DAV-ACL.deny-before-grant" />
+        </optional>
+        <optional>
+          <ref name="DAV-ACL.required-principal" />
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
   <define name="DAV-ACL.alternate-URI-set">
     <element name="alternate-URI-set" ns="DAV:">
       <zeroOrMore>
         <ref name="DAV.href" />
       </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.deny-before-grant">
+    <element name="deny-before-grant" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.grant-only">
+    <element name="grant-only" ns="DAV:">
+      <empty/>
     </element>
   </define>
 
@@ -33,6 +64,12 @@
     </element>
   </define>
   
+  <define name="DAV-ACL.no-invert">
+    <element name="no-invert" ns="DAV:">
+      <empty/>
+    </element>
+  </define>
+
   <define name="DAV-ACL.owner">
     <element name="owner" ns="DAV:">
       <ref name="DAV.href"/>
@@ -42,6 +79,30 @@
   <define name="DAV-ACL.principal-URL">
     <element name="principal-URL" ns="DAV:">
       <ref name="DAV.href"/>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.required-principal">
+    <element name="required-principal" ns="DAV:">
+      <interleave>
+        <optional>
+          <ref name="DAV.all" />
+        </optional>
+        <optional>
+          <ref name="DAV.authenticated" />
+        </optional>
+        <optional>
+          <ref name="DAV.unauthenticated" />
+        </optional>
+        <optional>
+          <ref name="DAV.self" />
+        </optional>
+        <optional>
+          <oneOrMore>
+            <ref name="DAV.href" />
+          </oneOrMore>
+        </optional>
+      </interleave>
     </element>
   </define>
 
