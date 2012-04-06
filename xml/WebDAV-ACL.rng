@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="DAV-ACL.alternate-URI-set">
+    <element name="alternate-URI-set" ns="DAV:">
+      <zeroOrMore>
+        <ref name="DAV.href" />
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.group-membership">
+    <element name="group-membership" ns="DAV:">
+      <zeroOrMore>
+        <ref name="DAV.href" />
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.group-membership-set">
+    <element name="group-membership-set" ns="DAV:">
+      <zeroOrMore>
+        <ref name="DAV.href" />
+      </zeroOrMore>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.group">
+    <element name="group" ns="DAV:">
+      <zeroOrMore>
+        <ref name="DAV.href"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="DAV-ACL.owner">
+    <element name="owner" ns="DAV:">
+      <ref name="DAV.href"/>
+    </element>
+  </define>
+  
+  <define name="DAV-ACL.principal-URL">
+    <element name="principal-URL" ns="DAV:">
+      <ref name="DAV.href"/>
+    </element>
+  </define>
+
+</grammar>

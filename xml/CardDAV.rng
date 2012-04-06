@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="CARDDAV.address-data-type">
+    <element name="address-data-type" ns="urn:ietf:params:xml:ns:carddav">
+      <attribute name="content-type">
+        <text/>
+      </attribute>
+      <attribute name="version">
+        <data type="decimal"/>
+      </attribute>
+      <empty/>
+    </element>
+  </define>
+
+  <define name="CARDDAV.addressbook">
+    <element name="addressbook" ns="urn:ietf:params:xml:ns:carddav">
+      <empty/>
+    </element>
+  </define>
+  
+  <define name="CARDDAV.addressbook-description">
+    <element name="addressbook-description" ns="urn:ietf:params:xml:ns:carddav">
+      <text/>
+    </element>
+  </define>
+
+  <define name="CARDDAV.addressbook-home-set">
+    <element name="addressbook-home-set" ns="urn:ietf:params:xml:ns:carddav">
+      <oneOrMore>
+        <ref name="DAV.href" />
+      </oneOrMore>
+    </element>
+  </define>
+
+  <define name="CARDDAV.max-resource-size">
+    <element name="max-resource-size" ns="urn:ietf:params:xml:ns:carddav">
+      <data type="integer"/>
+    </element>
+  </define>
+
+  <define name="APPLE.getctag">
+    <element name="getctag" ns="http://calendarserver.org/ns/">
+      <text/>
+    </element>
+  </define>
+
+  <define name="CARDDAV.principal-address">
+    <element name="principal-address" ns="urn:ietf:params:xml:ns:carddav">
+      <ref name="DAV.href"/>
+    </element>
+  </define>
+  
+  <define name="CARDDAV.supported-address-data">
+    <element name="supported-address-data" ns="urn:ietf:params:xml:ns:carddav">
+      <oneOrMore>
+        <ref name="CARDDAV.address-data-type" />
+      </oneOrMore>
+    </element>
+  </define>
+
+</grammar>

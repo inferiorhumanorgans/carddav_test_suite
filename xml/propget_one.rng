@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-
-  <define name="DAV.href">
-    <element name="href" ns="DAV:">
-      <text/>
-    </element>
-  </define>
-
-  <define name="DAV.prop">
-    <element name="prop" ns="DAV:">
-      <empty/>
-    </element>
-  </define>
+  <include href="WebDAV.rng" />
+  <include href="WebDAV-ACL.rng" />
+  <include href="CardDAV.rng" />
 
   <define name="DAV.propget">
     <element name="multistatus" ns="DAV:">
@@ -28,132 +19,6 @@
 
         </element>
       </element>
-    </element>
-  </define>
-
-  <define name="CARDDAV.address-data-type">
-    <element name="address-data-type" ns="urn:ietf:params:xml:ns:carddav">
-      <attribute name="content-type">
-        <text/>
-      </attribute>
-      <attribute name="version">
-        <data type="decimal"/>
-      </attribute>
-      <empty/>
-    </element>
-  </define>
-
-  <define name="CARDDAV.addressbook">
-    <element name="addressbook" ns="urn:ietf:params:xml:ns:carddav">
-      <empty/>
-    </element>
-  </define>
-  
-  <define name="CARDDAV.addressbook-description">
-    <element name="addressbook-description" ns="urn:ietf:params:xml:ns:carddav">
-      <text/>
-    </element>
-  </define>
-
-  <define name="CARDDAV.addressbook-home-set">
-    <element name="addressbook-home-set" ns="urn:ietf:params:xml:ns:carddav">
-      <oneOrMore>
-        <ref name="DAV.href" />
-      </oneOrMore>
-    </element>
-  </define>
-
-  <define name="DAV-ACL.alternate-URI-set">
-    <element name="alternate-URI-set" ns="DAV:">
-      <zeroOrMore>
-        <ref name="DAV.href" />
-      </zeroOrMore>
-    </element>
-  </define>
-
-  <define name="DAV.collection">
-    <element name="collection" ns="DAV:">
-      <empty/>
-    </element>
-  </define>
-
-  <define name="DAV.displayname">
-    <element name="displayname" ns="DAV:">
-      <text/>
-    </element>
-  </define>
-
-  <define name="DAV-ACL.group-membership">
-    <element name="group-membership" ns="DAV:">
-      <zeroOrMore>
-        <ref name="DAV.href" />
-      </zeroOrMore>
-    </element>
-  </define>
-
-  <define name="DAV-ACL.group-membership-set">
-    <element name="group-membership-set" ns="DAV:">
-      <zeroOrMore>
-        <ref name="DAV.href" />
-      </zeroOrMore>
-    </element>
-  </define>
-
-  <define name="CARDDAV.max-resource-size">
-    <element name="max-resource-size" ns="urn:ietf:params:xml:ns:carddav">
-      <data type="integer"/>
-    </element>
-  </define>
-
-  <define name="APPLE.getctag">
-    <element name="getctag" ns="http://calendarserver.org/ns/">
-      <text/>
-    </element>
-  </define>
-
-  <define name="DAV.getetag">
-    <element name="getetag" ns="DAV:">
-      <text/>
-    </element>
-  </define>
-
-  <define name="DAV-ACL.group">
-    <element name="group" ns="DAV:">
-      <zeroOrMore>
-        <ref name="DAV.href"/>
-      </zeroOrMore>
-    </element>
-  </define>
-  
-  <define name="DAV-ACL.owner">
-    <element name="owner" ns="DAV:">
-      <ref name="DAV.href"/>
-    </element>
-  </define>
-
-  <define name="DAV.principal">
-    <element name="principal" ns="DAV:">
-      <empty/>
-    </element>
-  </define>
-
-  <define name="CARDDAV.principal-address">
-    <element name="principal-address" ns="urn:ietf:params:xml:ns:carddav">
-      <ref name="DAV.href"/>
-    </element>
-  </define>
-  
-  <define name="DAV-ACL.principal-URL">
-    <element name="principal-URL" ns="DAV:">
-      <ref name="DAV.href"/>
-    </element>
-  </define>
-
-  <define name="CARDDAV.supported-address-data">
-    <element name="supported-address-data" ns="urn:ietf:params:xml:ns:carddav">
-      <oneOrMore>
-        <ref name="CARDDAV.address-data-type" />
-      </oneOrMore>
     </element>
   </define>
 
