@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
+  <define name="DAV-ACL.ace">
+    <element name="ace" ns="DAV:">
+      <interleave>
+        <choice>
+          <ref name="DAV-ACL.principal" />
+          <element name="invert" ns="DAV:">
+            <ref name="DAV-ACL.principal" />
+          </element>
+        </choice>
+        <choice>
+          <element name="grant" ns="DAV:">
+            <oneOrMore>
+              <ref name="DAV-ACL.privilege" />
+            </oneOrMore>
+          </element>
+          <element name="deny" ns="DAV:">
+            <oneOrMore>
+              <ref name="DAV-ACL.privilege" />
+            </oneOrMore>
+          </element>
+        </choice>
+        <optional>
+          <element name="protected" ns="DAV:">
+            <empty/>
+          </element>
+        </optional>
+        <optional>
+          <element name="inherited" ns="DAV:">
+            <ref name="DAV.href" />
+          </element>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.acl">
+    <element name="acl" ns="DAV:">
+      <zeroOrMore>
+        <choice>
+          <ref name="DAV-ACL.ace" />
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+
   <define name="DAV-ACL.acl-restrictions">
     <element name="acl-restrictions" ns="DAV:">
       <interleave>
@@ -75,10 +120,41 @@
       <ref name="DAV.href"/>
     </element>
   </define>
-  
+
+  <define name="DAV-ACL.principal">
+    <element name="principal" ns="DAV:">
+      <choice>
+        <ref name="DAV.href" />
+        <ref name="DAV.all" />
+        <ref name="DAV.authenticated" />
+        <ref name="DAV.unauthenticated" />
+        <ref name="DAV-ACL.property" />
+        <ref name="DAV.self" />
+      </choice>
+    </element>
+  </define>
+
   <define name="DAV-ACL.principal-URL">
     <element name="principal-URL" ns="DAV:">
       <ref name="DAV.href"/>
+    </element>
+  </define>
+
+  <define name="DAV-ACL.privilege">
+    <element name="privilege" ns="DAV:">
+      <element>
+        <anyName />
+        <empty />
+      </element>      
+    </element>
+  </define>
+
+  <define name="DAV-ACL.property">
+    <element name="property" ns="DAV:">
+      <element>
+        <anyName />
+        <empty />
+      </element>
     </element>
   </define>
 
