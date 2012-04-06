@@ -1,12 +1,13 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-require 'rubygems'
-require 'rspec'
-require 'net/dav'
-require 'pathname'
-require 'nokogiri'
 require 'yaml'
 require 'pathname'
+
+require 'rubygems'
+
+require 'rspec'
+require 'net/dav'
+require 'nokogiri'
 
 CONFIG = YAML.load_file('config.yml')
 XML_PATH = Pathname.new(Dir.pwd).join('xml')
